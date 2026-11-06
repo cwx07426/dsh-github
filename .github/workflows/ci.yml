@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate JSON files
+        run: node -e "const fs=require('fs'); for (const f of ['package.json','locale/en.json','locale/zh.json']) { JSON.parse(fs.readFileSync(f,'utf8')); console.log(f,'OK') }"
+
+      - name: Validate patch YAML
+        run: npx --yes js-yaml@4 cordis.patch.yml > NUL
+
+      - name: Check plugin JavaScript syntax
+        run: node --check lib/index.js
+
+      - name: Check the plugin icon
+        run: node -e "const fs=require('fs'); const s=fs.readFileSync('icon.svg','utf8'); if(!s.includes('<svg') || !s.includes('</svg>')) throw new Error('icon.svg is not a complete SVG'); console.log('icon.svg OK')"

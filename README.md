@@ -1,5 +1,7 @@
 # GitHub 插件（`@local/dsh-github`）
 
+[English](README.en.md) | 中文
+
 > English summary: a GitHub plugin for DeepSeek Harness — create repositories, upload code as one commit per call, open issues and pull requests, and list repositories and issues, all through the GitHub REST API without `git` or `gh`. It also handles empty-repository first pushes and local TLS-interception setups (GitHub accelerators, VPNs, security products) automatically.
 
 为 DeepSeek Harness 增加 GitHub 能力：**创建仓库、上传代码、提交 issue 与 pull request**，以及查看账号权限和仓库、issue 列表。所有操作直接调用 GitHub REST API，不依赖 `git` 或 `gh` CLI。
@@ -92,8 +94,10 @@ github-plugin/
 ├─ locale/en.json        # 插件管理器的标题/描述（英文）
 ├─ locale/zh.json        # 插件管理器的标题/描述（中文）
 ├─ icon.svg              # 原创图标
+├─ .github/workflows/ci.yml  # CI：JSON / YAML / JS 语法校验
 ├─ LICENSE               # MIT
 ├─ .gitignore
+├─ README.en.md          # 英文 README
 └─ README.md
 ```
 
