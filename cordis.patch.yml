@@ -1,0 +1,15 @@
+# GitHub layer: registers the repository, code-upload, pull-request, and issue
+# tools on every Agent. Reload trigger: keep this line when editing to force
+# HMR recomposition.
+- insert:
+    - id: github-tools
+      name: '@local/dsh-github'
+      config:
+        # Personal access token. Leave empty to read GITHUB_TOKEN (or GH_TOKEN)
+        # from the Harness process environment instead.
+        token: ''
+        # REST API origin. Change only for GitHub Enterprise Server, for
+        # example https://ghe.example.com/api/v3.
+        apiBaseUrl: 'https://api.github.com'
+        # Deadline for one GitHub API request, in milliseconds.
+        timeoutMs: 30000

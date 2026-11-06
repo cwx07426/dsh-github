@@ -1,0 +1,46 @@
+{
+  "name": "@local/dsh-github",
+  "version": "0.1.0",
+  "private": true,
+  "description": "GitHub tools for DeepSeek Harness: create repositories, push code, and manage issues.",
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "github",
+    "github-api",
+    "issues",
+    "pull-requests"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cwx07426/dsh-github.git"
+  },
+  "author": "cwx07426",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "0.2.2-rc.1"
+  }
+}
